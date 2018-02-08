@@ -1,0 +1,24 @@
+<project>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcDir="src" destDir="build/classes"/>
+    </target>
+
+    <target name="build">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/MyApp.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.lfa.app.Program"/>
+            </manifest>
+        </jar>
+
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/MyApp.jar" fork="true"/>
+    </target>
+</project>
